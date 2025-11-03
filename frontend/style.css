@@ -19,8 +19,74 @@ body {
 }
 
 #map {
-  height: 400px;
+  height: 500px;
   width: 80%;
   margin: 0 auto;
   border-radius: 10px;
+}
+
+/* 🔸 Legenda pogodowa */
+.legend {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.legend h4 {
+  margin: 0 0 5px;
+  font-weight: bold;
+}
+
+.legend-box {
+  margin-top: 8px;
+}
+
+.legend-bar {
+  height: 15px;
+  width: 200px;
+  border-radius: 5px;
+  margin: 4px auto;
+}
+
+/* 🌡️ Temperatura */
+.legend-temp-bar {
+  background: linear-gradient(to right, #2b83ba, #abdda4, #ffffbf, #fdae61, #d7191c);
+}
+
+/* 🌧️ Opady */
+.legend-rain-bar {
+  background: linear-gradient(to right, #d4f1f9, #76b7e8, #2c7fb8, #253494);
+}
+
+/* ☁️ Zachmurzenie */
+.legend-clouds-bar {
+  background: linear-gradient(to right, #f0f0f0, #bdbdbd, #636363, #252525);
+}
+
+.legend-labels {
+  display: flex;
+  justify-content: space-between; /* równo rozmieszcza etykiety pod paskiem */
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.hidden {
+  display: none;
+}
+#layerSelector {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#layerSelector label {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+#legendContainer {
+  text-align: center;
+  margin-top: 10px;
 }

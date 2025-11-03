@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel pogodowy</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Sprawdź pogodę</h1>
+    <div class="search-bar">
+      <input type="text" id="cityInput" placeholder="Wpisz miasto...">
+      <button id="searchBtn">Szukaj</button>
+    </div>
+    <div id="weatherInfo"></div>
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

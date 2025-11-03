@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  background: #eef2f3;
+}
+
+#app {
+  padding: 20px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+#cityInput {
+  padding: 10px;
+  width: 200px;
+}
+
+#map {
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+}

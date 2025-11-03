@@ -90,3 +90,20 @@ body {
   text-align: center;
   margin-top: 10px;
 }
+#userPanel {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+#userPanel input {
+  margin: 3px;
+  padding: 5px;
+}
+
+#userPanel button {
+  margin: 3px;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -1,6 +1,56 @@
 const API_URL = "http://127.0.0.1:8000/api/weather";
 const API_KEY = "25ae8c36b22398f35b25584807571f27";
 
+
+let currentUser = null;
+
+// Rejestracja
+document.getElementById("registerBtn").addEventListener("click", async () => {
+  const username = document.getElementById("regUsername").value;
+  const password = document.getElementById("regPassword").value;
+  const res = await fetch("http://127.0.0.1:8000/api/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({username, password})
+  });
+  const data = await res.json();
+  alert(data.message || data.detail);
+});
+
+// Logowanie
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const username = document.getElementById("loginUsername").value;
+  const password = document.getElementById("loginPassword").value;
+  const res = await fetch("http://127.0.0.1:8000/api/login", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({username, password})
+  });
+  const data = await res.json();
+  if(data.username){
+    alert("Zalogowano: " + data.username);
+    currentUser = data.username;
+  } else {
+    alert(data.detail);
+  }
+});
+
+// Dodawanie miasta do historii po wyszukaniu
+document.getElementById("searchBtn").addEventListener("click", async () => {
+  const city = document.getElementById("cityInput").value;
+  if (!city) return alert("Wpisz nazwę miasta!");
+
+  if(currentUser){
+    await fetch(`http://127.0.0.1:8000/api/history/${currentUser}`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({city})
+    });
+  }
+
+  // Tutaj reszta kodu wyszukiwania miasta i mapy
+});
+
 // ------------------------
 // Warstwy mapowe
 // ------------------------
@@ -88,6 +138,7 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
     <p>Ciśnienie: ${main.pressure} hPa</p>
     <p>Współrzędne: [${coord.lat}, ${coord.lon}]</p>
     <p>Opady: ${data.rain ? data.rain["1h"] || data.rain["3h"] || 0 : 0} mm</p>
+    <p>Wiatr: ${data.wind.speed} m/s</p>
   `;
 
   map.setView([coord.lat, coord.lon], 10);
